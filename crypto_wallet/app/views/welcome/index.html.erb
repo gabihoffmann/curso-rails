@@ -3,5 +3,10 @@
 <!-- <p><%= "Embedded Ruby with output" %></p> -->
 <!-- <p><%# "Embedded Ruby comment" %></p> -->
 <!-- <p>O meu nome reverso é: <%="Ana Gabriella".reverse%></p> -->
-<p> <strong>A data de hoje é: </strong><%= Date.today %></p>
+<p> <strong>A data de hoje é: </strong><%= dataBrasil(Date.today) %></p>
+<%# Todo método escrito num helper, estará automaticamente disponível em sua view %>
+<!--  helper: link_to: tag <a> html. é melhor usar código Ruby que html puro-->
+<%# link/-to "texto do scr" , path  %>
+<p> <%= link_to "Cadastro de Moedas", coins_path %> <p>
 
+<p><%= nome_aplicacao %></p>
