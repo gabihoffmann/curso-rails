@@ -11,3 +11,7 @@
 
 <p><%= nome_aplicacao %></p>
 <p>Você está em um ambiente de <strong><%= ambiente_rails%></strong> </p>
+
+<%# Para cada sessão/instancia do browser a @variavel  é criada e tem seu valor unico  %>
+<%# As variaveis de instancia @variavel são quem passam dados do controller para a view%>
+<p>Variavel de instancia/sessão: <%= @nome %></p>
