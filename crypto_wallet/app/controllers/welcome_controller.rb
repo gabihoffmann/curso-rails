@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   #  
   def index
-    @nome = "Shazam"
+    @nome = params[:nome]
+    
   end
 end
