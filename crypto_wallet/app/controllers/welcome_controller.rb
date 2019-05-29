@@ -4,4 +4,5 @@ class WelcomeController < ApplicationController
     @nome = params[:nome]
     
   end
+
 end

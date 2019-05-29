@@ -1,4 +1,6 @@
 class CoinsController < ApplicationController
+  layout "coins"
+
   before_action :set_coin, only: [:show, :edit, :update, :destroy]
 
   # GET /coins

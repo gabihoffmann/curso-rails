@@ -7,7 +7,9 @@
 <%# Todo método escrito num helper, estará automaticamente disponível em sua view %>
 <!--  helper: link_to: tag <a> html. é melhor usar código Ruby que html puro-->
 <%# link/-to "texto do scr" , path  %>
-<p> <%= link_to "Cadastro de Moedas", coins_path %> <p>
+
+<%= render 'menu' %>
+
 
 <p><%= nome_aplicacao %></p>
 <p>Você está em um ambiente de <strong><%= ambiente_rails%></strong> </p>
