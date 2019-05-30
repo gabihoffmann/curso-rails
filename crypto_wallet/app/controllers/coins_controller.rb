@@ -1,6 +1,7 @@
 class CoinsController < ApplicationController
   layout "coins"
 
+  # Filters this mean before actions (show, edit, update and destroy) execute SET_COIN method
   before_action :set_coin, only: [:show, :edit, :update, :destroy]
 
   # GET /coins
@@ -26,8 +27,10 @@ class CoinsController < ApplicationController
   # POST /coins
   # POST /coins.json
   def create
+    # método coin_params para garantir o require de params
     @coin = Coin.new(coin_params)
 
+    
     respond_to do |format|
       if @coin.save
         format.html { redirect_to @coin, notice: 'Coin was successfully created.' }
@@ -66,11 +69,14 @@ class CoinsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_coin
+      # return an element by ID
       @coin = Coin.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coin_params
+      # o metodo coin_params faz um require na variavel global params pegando da chave coin apenas os parametros dados como PERMIT
+      # qualquer outro tipo de parametro não é permitido
       params.require(:coin).permit(:description, :acronym, :url_image)
     end
 end

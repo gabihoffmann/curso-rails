@@ -1,3 +1,4 @@
+<%# Helper form_with :: https://api.rubyonrails.org/v5.1/classes/ActionView/Helpers/FormHelper.html %>
 <%= form_with(model: coin, local: true) do |form| %>
   <% if coin.errors.any? %>
     <div id="error_explanation">
@@ -24,9 +25,36 @@
   <div class="field">
     <%= form.label :url_image %>
     <%= form.text_field :url_image %>
+    <%= image_tag coin.url_image, size: "20x20" unless coin.url_image.blank?%>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<%# Inspec form on browser: %>
+<%# 
+<form action="/coins" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="KG8vP9FQD5r76k1W19NInD1nAj+9UqbTzcloBoK94YH4VnzCA7ZSPb3iV/fApvM8qBOyTbWW3nHvAWYh+z6dmg==">
+
+  <div class="field">
+    <label for="coin_description">Description</label>
+    <input type="text" name="coin[description]" id="coin_description">
+  </div>
+
+  <div class="field">
+    <label for="coin_acronym">Acronym</label>
+    <input type="text" name="coin[acronym]" id="coin_acronym">
+  </div>
+
+  <div class="field">
+    <label for="coin_url_image">Url image</label>
+    <input type="text" name="coin[url_image]" id="coin_url_image">
+    
+  </div>
+
+  <div class="actions">
+    <input type="submit" name="commit" value="Create Coin" data-disable-with="Create Coin">
+  </div>
+</form>
+ %>
