@@ -7,8 +7,8 @@
 Rails application for digital coins, their images and acronyms.
 
 ## References
-(Ruby)[https://www.ruby-lang.org/]
-(RVM)[https://rvm.io]
-(Rails)[https://rubyonrails.org]
-(SQLite)[https://www.sqlite.org/index.html]
-(Bundler)[https://bundler.io]
+[Ruby](https://www.ruby-lang.org/)
+[RVM](https://rvm.io)
+[Rails](https://rubyonrails.org)
+[SQLite](https://www.sqlite.org/index.html)
+[Bundler](https://bundler.io)
