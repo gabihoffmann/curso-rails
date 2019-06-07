@@ -8,8 +8,9 @@ namespace :dev do
         show_spiner('Apagando BD...') {`rails db:drop`}
         show_spiner('Criando BD...') {`rails db:create`}
         show_spiner('Migrando BD...') {`rails db:migrate`}
-        `rails dev:add_coins`
         %x(rails dev:add_mining_type)
+        `rails dev:add_coins`
+        
       else
         puts 'Você não está em ambiente de desenvolvimento!'
       end
@@ -19,29 +20,47 @@ namespace :dev do
     task add_coins: :environment do
       show_spiner('Cadastrando moedas...') do
       coins = [
-          {   description: 'Bitcoin',
-              acronym: 'BTC',
-              url_image: 'http://pngimg.com/uploads/bitcoin/bitcoin_PNG47.png' },
+          {   
+            description: 'Bitcoin',
+            acronym: 'BTC',
+            url_image: 'http://pngimg.com/uploads/bitcoin/bitcoin_PNG47.png',
+            mining_type: MiningType.find_by(acronym: "PoW")
+          },
 
-          { description: 'DASH',
+          { 
+            description: 'DASH',
             acronym: 'DASH',
-            url_image: 'https://media.dash.org/wp-content/uploads/Dash-D-white_on_blue_circle.png'},
+            url_image: 'https://media.dash.org/wp-content/uploads/Dash-D-white_on_blue_circle.png',
+            mining_type: MiningType.all.sample
+          },
 
-          {description: 'Ethereum',
+          {
+            description: 'Ethereum',
             acronym: 'ETH',
-            url_image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/ETHEREUM-YOUTUBE-PROFILE-PIC.png/600px-ETHEREUM-YOUTUBE-PROFILE-PIC.png'},
+            url_image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/ETHEREUM-YOUTUBE-PROFILE-PIC.png/600px-ETHEREUM-YOUTUBE-PROFILE-PIC.png',
+            mining_type: MiningType.all.sample
+          },
 
-          {description: 'Shazam',
+          {
+            description: 'Shazam',
             acronym: 'SZM',
-            url_image: 'https://library.kissclipart.com/20180831/zte/kissclipart-shazam-symbol-png-clipart-captain-marvel-black-ada-770a336e34552609.png'},
+            url_image: 'https://library.kissclipart.com/20180831/zte/kissclipart-shazam-symbol-png-clipart-captain-marvel-black-ada-770a336e34552609.png',
+            mining_type: MiningType.all.sample
+          },
           
-            {description: 'Iota',
+          {
+            description: 'Iota',
             acronym: 'IOT',
-            url_image: ""},
+            url_image: "",
+            mining_type: MiningType.all.sample
+          },
 
-            {description: 'ZCash',
+          {
+            description: 'ZCash',
             acronym: 'ZEC',
-            url_image: ""}
+            url_image: "",
+            mining_type: MiningType.all.sample
+          }
 
       ]
 
